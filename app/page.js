@@ -8,10 +8,9 @@ import { Button, Card, Label, TextInput, Select } from "flowbite-react";
 export default function CardWithFormInputs() {
   const [weight, setWeight] = useState("");
   const [unit, setUnit] = useState("Kilograms");
-  const [water, setWater] = useState("");
+
   const [result, setResult] = useState(null);
 
-  const [clientName, setClientName] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -32,8 +31,8 @@ export default function CardWithFormInputs() {
   return (
     <>
       <Card>
-        <div className="flex flex-col items-center justify-center h-screen">
-          <div className="w-full max-w-md p-8 bg-white rounded shadow-lg">
+        <div className="flex flex-col items-center justify-center h-screen ">
+          <div className="w-full max-w-md p-8 overflow-hidden bg-white rounded shadow-lg">
             <Image src={Profile} alt="profile" width={"25%"} height={"auto"} />
             <h1 className="pb-4 font-bold text-center text-red-600">
               Water Intake Calculator
@@ -73,7 +72,7 @@ export default function CardWithFormInputs() {
                 <p className="pt-3">
                   You should drink{" "}
                   <span className="font-bold text-red-600">
-                    {result.value} {result.unit}
+                    {result.value.toFixed(2)} {result.unit}
                   </span>{" "}
                   of water per day.
                 </p>
