@@ -7,7 +7,9 @@ import { Button, Card, Label, TextInput } from "flowbite-react";
 
 export default function CardWithFormInputs() {
   const [weight, setWeight] = useState("");
+  const [weight2, setWeight2] = useState("");
   const [water, setWater] = useState("");
+  const [water2, setWater2] = useState("");
   const [clientName, setClientName] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,6 +19,15 @@ export default function CardWithFormInputs() {
     setWater(waterInLiters.toFixed(1));
     setClientName("");
     setWeight("");
+  };
+  const handleSubmit2 = (e) => {
+    e.preventDefault();
+    // Calculate the amount of water the user should drink
+    const waterInLiters = weight2 / 2;
+    // Set the water state to the calculated amount
+    setWater2(waterInLiters.toFixed(1));
+    setClientName("");
+    setWeight2("");
   };
   return (
     <>
@@ -50,6 +61,35 @@ export default function CardWithFormInputs() {
                 <p className="pt-3">
                   You should drink{" "}
                   <span className="font-bold text-red-600">{water} liters</span>{" "}
+                  of water per day.
+                </p>
+              </div>
+            )}
+            <form
+              className="flex flex-col w-full gap-4 mt-4"
+              onSubmit={handleSubmit2}
+            >
+              <div className="mb-2">
+                <Label htmlFor="weight2" value="Input Your Weight (pounds)" />
+                <TextInput
+                  id="weight2"
+                  required
+                  type="number"
+                  value={weight2}
+                  onChange={(e) => setWeight2(e.target.value)}
+                />
+              </div>
+
+              <Button type="submit">Calculate</Button>
+            </form>
+            {water2 && (
+              <div className="pt-6 text-center">
+                <p className="pt-3">Hello 👋</p>
+                <p className="pt-3">
+                  You should drink{" "}
+                  <span className="font-bold text-red-600">
+                    {water2} ounces
+                  </span>{" "}
                   of water per day.
                 </p>
               </div>
