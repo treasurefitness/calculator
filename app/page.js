@@ -68,7 +68,7 @@ export default function CardWithFormInputs() {
             </form>
             {result && (
               <div className="pt-6 text-center">
-                <p className="pt-3">Hello 👋</p>
+                <p className="pt-3">Hey sis 👋</p>
                 <p className="pt-3">
                   You should drink{" "}
                   <span className="font-bold text-red-600">
